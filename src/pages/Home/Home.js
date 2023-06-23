@@ -1,7 +1,6 @@
 import React, { useState ,useEffect, useContext} from 'react';
 import './Home.css'
 import Sidebar from '../../include/SidebarNav';
-import Lottie from 'react-lottie';
 import animationData from './128009-no-data.json';
 import { ChatContext } from '../../ChatProvider';
 import { Timestamp, arrayUnion, doc, onSnapshot, updateDoc } from 'firebase/firestore';
@@ -87,11 +86,6 @@ function Home(props) {
                     </div>
                     : <div className='noChat_data'>
                         <h6>No messages list.</h6>
-                        <Lottie 
-                            options={defaultOptions}
-                            height={600}
-                            width={'100%'}
-                        />
                     </div>
                 }
                 <div className='chat_body'>

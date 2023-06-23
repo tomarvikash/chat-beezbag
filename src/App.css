@@ -1,0 +1,17 @@
+body{
+  font-size: 14px;
+  line-height: 1;
+  color: black;
+  letter-spacing: 0px;
+  word-break: break-word;
+  margin: 0;
+  padding: 0;
+}
+*{
+  box-sizing: border-box;
+}
+ul,ol{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}

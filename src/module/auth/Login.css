@@ -1,0 +1,161 @@
+
+  .form_error {
+    color: red;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .form_error::before {
+    display: inline-block;
+    margin-bottom: 10px;
+    content: "⚠ ";
+  }
+  
+  input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    min-height: 55px;
+    outline: none;
+    box-shadow: none;
+    font-size: 15px;
+  }
+  button[type="submit"],
+  input[type="submit"] {
+    background: #fcc818;
+    color: #222;
+    border: none;
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  button[type="submit"][disabled],
+  input[type="submit"][disabled]{
+    background: gray !important;
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  button[type="submit"]:hover,
+  input[type="submit"]:hover {
+    background: #fcc818;
+  }
+  
+  button[type="submit"]:active,
+  input[type="button"]:active,
+  input[type="submit"]:active {
+    transition: 0.3s all;
+    transform: translateY(3px);
+    border: 1px solid transparent;
+    opacity: 0.8;
+  }
+  
+  input:disabled {
+    opacity: 0.4;
+  }
+  
+form fieldset:not(:last-child){
+    margin-bottom: 15px;
+}
+  input[type="button"]:hover {
+    transition: 0.3s all;
+  }
+  
+  button[type="submit"],
+  input[type="button"],
+  input[type="submit"] {
+    -webkit-appearance: none;
+  }
+  
+  button[type="button"] {
+    display: block;
+    appearance: none;
+    background: #fff;
+    color: #000;
+    border: none;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 4px;
+  }
+  .login_page{
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 75px);
+    width: 100%;
+    justify-content: center;
+    background: url(https://e7.pngegg.com/pngimages/758/386/png-clipart-simple-white-honeycomb-pattern-background-white-polygon.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.form_wrap{
+    max-width: 570px;
+    margin: 0 auto;
+    width: 100%;
+}
+.login_inner{
+    padding: 40px 30px 30px;
+    border-radius: 12px;
+    background: #ffffffc2;
+    box-shadow: 0px 0px 50px rgba(0,0,0,0.32);
+}
+.login_inner h2{
+    margin-bottom: 15px;
+    color: #fcc818;
+    font-size: 32px;
+    line-height: 1.1;
+    font-weight: 500;
+}
+.login_inner h6{
+    margin-bottom: 35px;
+    font-size: 16px;
+    color: rgba(0,0,0,0.7);
+}
+.login_inner p a{
+    color: #fcc818;
+    font-weight: 600;
+    text-decoration: underline;
+}
+.login_inner fieldset #uploadAvtar ~ label img{
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+.login_inner fieldset #uploadAvtar ~ label{
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.login_inner fieldset #uploadAvtar ~ label span{
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 14px;
+  color: #c19609c8;
+  font-weight: 600;
+  padding: 10px 10px;
+  border: 2px solid #c19609c8;
+  border-radius: 26px;
+  box-shadow: 7px 7px 2px #c1960989;
+  transition: all 100ms ease-in-out;
+  cursor: pointer;
+}
+.login_inner fieldset #uploadAvtar ~ label span:hover{
+  box-shadow: none;
+  background:#c19609c8;
+  border-color: #c19609c8;
+  color: #fff;
+}
+.forgot_link{
+  display: block;
+  text-align: right;
+}
+.forgot_link a{
+  color: #fcc818;
+  font-weight: 500;
+}

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css'
-import animationData from './99284-beezbag-logo.json';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import { AuthContext } from '../AuthProvider';
@@ -19,14 +18,6 @@ const handleLogout = () => {
     });
 }
 function Header (props){
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice"
-        }
-    };
     
     const items = [
         {

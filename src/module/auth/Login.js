@@ -17,9 +17,8 @@ function Login() {
 
     const {currentUser} = useContext(AuthContext);
     console.log("currentUser",currentUser);
-    const onSubmit = data => (
-        setSubmitDisable(true),
-
+    const onSubmit = data => {
+        setSubmitDisable(true);
         signInWithEmailAndPassword(auth,data.email,data.password).then( (response) =>{
             const user = response.user
             setSubmitDisable(false)
@@ -35,7 +34,7 @@ function Login() {
             errorToast();
             setSubmitDisable(false);
         })
-    );
+    };
 
 	return <>
         <div className='login_page'>  

@@ -1,7 +1,6 @@
-import React, { useState ,useEffect, useContext} from 'react';
+import React, { useState ,useEffect, useContext, useCallback} from 'react';
 import './Home.css'
 import Sidebar from '../../include/SidebarNav';
-import animationData from './128009-no-data.json';
 import { ChatContext } from '../../ChatProvider';
 import { Timestamp, arrayUnion, doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import { db } from '../../Firebase';
@@ -9,14 +8,7 @@ import { AuthContext } from '../../AuthProvider';
 import { v4 as uuid } from 'uuid';
 
 function Home(props) {
-    const defaultOptions = {
-      loop: true,
-      autoplay: true,
-      animationData: animationData,
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid"
-      }
-    };
+  
     
     const [messages, setMessages] = useState([]);
     const [inputValue, setInputValue] = useState('');
@@ -28,32 +20,33 @@ function Home(props) {
       setInputValue(e.target.value);
     };
 
-    const handleSendMessage = async () => {
-      if (inputValue.trim() !== '') {
-        setInputValue('');
-        await updateDoc(doc(db,'chats',data.chatId),{
-            messages:arrayUnion({
-                id:uuid(),
-                senderId:currentUser?.uid,
-                message:inputValue,
-                date:Timestamp.now(),
+    const handleSendMessage = useCallback(async () => {
+        if (inputValue.trim() !== '') {
+          setInputValue('');
+          await updateDoc(doc(db, 'chats', data.chatId), {
+            messages: arrayUnion({
+              id: uuid(),
+              senderId: currentUser?.uid,
+              message: inputValue,
+              date: Timestamp.now(),
             }),
-        });
-      }
-    };
-    
-    useEffect(() => {
+          });
+        }
+      }, [inputValue, data.chatId, currentUser?.uid]);
+      
+      useEffect(() => {
         const listener = event => {
-            if (event.code === "Enter" || event.code === "NumpadEnter") {
+          if (event.code === "Enter" || event.code === "NumpadEnter") {
             handleSendMessage();
             event.preventDefault();
-            }
+          }
         };
         document.addEventListener("keydown", listener);
         return () => {
-            document.removeEventListener("keydown", listener);
+          document.removeEventListener("keydown", listener);
         };
-    }, [handleSendMessage]);
+      }, [handleSendMessage]);
+      
 
 
     useEffect(() => {

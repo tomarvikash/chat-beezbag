@@ -1,6 +1,6 @@
 import React, { useState,useContext } from "react";
 import { db } from '../Firebase';
-import { collection, query, getDocs, setDoc,where, getDoc,doc, updateDoc, serverTimestamp } from "firebase/firestore";
+import { collection, query, getDocs, setDoc,where,doc, updateDoc, serverTimestamp } from "firebase/firestore";
 import { AuthContext } from '../AuthProvider';
 
 function Search() {
@@ -39,7 +39,7 @@ function Search() {
   const handleSelectUser = async () =>{
     const combinedId = currentUser?.uid > user[0]?.userId ? currentUser?.uid + user[0]?.userId : user[0]?.userId + currentUser?.uid;
     try {
-      const res  = await getDoc(doc(db,"chats",combinedId));
+      // const res  = await getDoc(doc(db,"chats",combinedId));
       // console.log("check Exists ", !res.exists());
       // if(!res.exists()){
         // update or create user chat

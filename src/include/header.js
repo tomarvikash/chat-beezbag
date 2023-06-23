@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css'
-import Lottie from 'react-lottie';
 import animationData from './99284-beezbag-logo.json';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -47,13 +46,14 @@ function Header (props){
             <div className='container-fluid'>
                 <div className='row align-items-center'>
                     <div className='col-md-4'>
-                        <Link to={`${props.name ? '/chat':'/'}`}>
-                            <Lottie 
+                        <Link className='logo_link' to={`${props.name ? '/chat':'/'}`}>
+                            {/* <Lottie 
                                 options={defaultOptions}
                                 height={50}
                                 width={110}
                                 style={{marginLeft:0}}
-                            />
+                            /> */}
+                            <h3>BeegBag</h3>
                         </Link>
                     </div>
                     <div className='col-md-8'>

@@ -26,6 +26,13 @@ header ul li a{
   text-decoration: none;
   text-transform: capitalize;
 }
+.logo_link{
+  color: #fcc818;
+  text-decoration: none;
+}
+.logo_link:hover{
+  color: #fcc818;
+}
 .Toastify__toast-container {
   top: 4.5rem !important;
 }

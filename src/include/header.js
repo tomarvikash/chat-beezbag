@@ -44,7 +44,7 @@ function Header (props){
                                 width={110}
                                 style={{marginLeft:0}}
                             /> */}
-                            <h3>BeegBag</h3>
+                            <h3>BeezBag</h3>
                         </Link>
                     </div>
                     <div className='col-md-8'>

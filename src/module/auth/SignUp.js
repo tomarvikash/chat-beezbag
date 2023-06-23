@@ -103,7 +103,7 @@ function SignUp() {
                         <fieldset>
                             <input  style={{display:'none'}} type="file" id="uploadAvtar" {...register("profilepic", { required: true, onChange:(e) => {handleChange(e)} })} />
                             <label htmlFor="uploadAvtar">
-                                <img width="80px" height="80px" id="user_avtar" src={`${userImg ? userImg : 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_640.png'}`} alt="user Image" />
+                                <img width="80px" height="80px" id="user_avtar" src={`${userImg ? userImg : 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_640.png'}`} alt="Profile User" />
                                 <span>&#x271B; Profile Image</span>
                             </label>
                             {errors.profilepic && <span className='form_error'>Please upload profile pic first!</span>}

@@ -15,6 +15,7 @@ import { auth } from './Firebase';
 import UserProfile from './pages/Profile/UserProfile';
 import { ChatProvider } from './ChatProvider';
 import ForgotPassword from './module/auth/ForgotPassword';
+import SignInPhone from './module/auth/SignInPhone';
 
 function App() { 
   const [isLogin,setIsLogin] = useState([false]);
@@ -38,6 +39,7 @@ function App() {
                       <Route path="/" element={<Login/> } /> 
                       <Route path="/login" element={<Login/> } /> 
                       <Route path="/forgot" element={<ForgotPassword/> } /> 
+                      <Route path="/signphone" element={<SignInPhone/> } /> 
                       <Route path="/signup" element={<SignUp/> } /> 
                       <Route path="/chat" element={<Home/> } /> 
                       <Route path="/profile" element={<UserProfile user={isLogin} /> } /> 

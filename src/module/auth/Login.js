@@ -2,11 +2,12 @@ import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import './Login.css'
 import { Link, useNavigate } from 'react-router-dom';
-import { auth } from '../../Firebase';
-import {signInWithEmailAndPassword} from 'firebase/auth';
+import { auth, provider } from '../../Firebase';
+import {signInWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../AuthProvider';
+import GoogleSignIn from './assets/google_btn_light.png'
 
 function Login() {
     const navigate = useNavigate();
@@ -35,6 +36,15 @@ function Login() {
             setSubmitDisable(false);
         })
     };
+    const signInWithGoogle = async () => {
+        try {
+        await signInWithPopup(auth,provider);
+        navigate('/chat');
+        } catch (err){
+            const errorToast = () => toast.error(err?.message);
+            errorToast();
+        }
+      };
 
 	return <>
         <div className='login_page'>  
@@ -58,7 +68,13 @@ function Login() {
                         <fieldset>
                             <input type="submit" disabled={submitDisable} value="Sign In" />
                         </fieldset>
-                        <p>Don't have an account.? <Link to="/signup">SignUp</Link></p>
+                        <div className='or_devider'>
+                            <p>OR</p>
+                        </div>
+                        <button className='google_signin' type='button'>
+                            <img src={GoogleSignIn} alt="google SignIn" onClick={signInWithGoogle} />
+                        </button>
+                        <p style={{textAlign:'center'}}>Don't have an account.? <Link to="/signup">SignUp</Link></p>
                     </form>
                 </div>
             </div>

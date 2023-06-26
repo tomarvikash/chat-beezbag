@@ -1,13 +1,15 @@
 import React, { useState} from 'react';
 import { useForm } from "react-hook-form";
-import {createUserWithEmailAndPassword,updateProfile} from 'firebase/auth'
-import { auth,storage,db } from '../../Firebase';
+import {createUserWithEmailAndPassword,signInWithPopup,updateProfile} from 'firebase/auth'
+import { auth,storage,db, provider } from '../../Firebase';
 import { Link ,useNavigate} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore"; 
 import './Login.css'
+import GoogleSignIn from './assets/google_btn_light.png'
+
 
 function SignUp() {
     const navigate = useNavigate();
@@ -90,8 +92,16 @@ function SignUp() {
             setFormError(error.message);
             ErrorToast();
             setSubmitDisable(false);
-          });
-      };
+        });
+    };
+    const signInWithGoogle = async () => {
+      try {
+      await signInWithPopup(auth,provider);
+      navigate('/chat');
+      } catch (err){
+        console.error(err);
+      }
+    };
 	return <>
         <div className='login_page'>  
             <div className='form_wrap'>
@@ -123,9 +133,15 @@ function SignUp() {
                         
                         {formError && <div className='form_error'>{formError}</div> }
                         <fieldset>
-                            <input type="submit" value="Sign In" disabled={submitDisable} />
+                            <input type="submit" value="Sign Up" disabled={submitDisable} />
                         </fieldset>
-                        <p>Don't have an account.? <Link to="/login">Sign In</Link></p>
+                        <div className='or_devider'>
+                            <p>OR</p>
+                        </div>
+                        <button className='google_signin' type='button'>
+                            <img src={GoogleSignIn} alt="google SignIn" onClick={signInWithGoogle} />
+                        </button>
+                        <p style={{textAlign:'center'}}>Don't have an account.? <Link to="/login">Sign In</Link></p>
                     </form>
                 </div>
             </div>

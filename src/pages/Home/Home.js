@@ -47,8 +47,6 @@ function Home(props) {
         };
       }, [handleSendMessage]);
       
-
-
     useEffect(() => {
           const getChats = () =>{
               const chat_list = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
@@ -60,7 +58,7 @@ function Home(props) {
           };
           data.chatId && getChats();
     },[data.chatId]);
-
+    console.log("Check User details wit h google", currentUser);
 	return <>
         <div className='home'>  
             <div className='left-sidebar'>
